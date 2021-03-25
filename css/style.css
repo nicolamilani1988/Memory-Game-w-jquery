@@ -1,0 +1,124 @@
+/* regole generali */
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background-color: #ADD8E6;
+  font-family: 'Nerko One', cursive;
+  text-align: center;
+  text-shadow: 1px 0px #170202;
+}
+
+/* regole titolo */
+h1{
+  color:white;
+  /* font-size: 100px; */
+}
+
+/* regole generali carte */
+.container{
+  width: 60%;
+  margin:auto;
+  border: 1px solid black;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  margin-bottom: 20px;
+}
+
+
+
+/* regole carte */
+
+
+
+
+/* regole carte */
+.card{
+  width: 150px;
+  height: 200px;
+  box-shadow: 2px 1px #86A8B2;
+  border-radius: 10px 10px 10px 10px;
+  color: #E3278B;
+  position: relative;
+}
+
+.layover{
+  width: 100%;
+  height: 100%;
+}
+
+.layover>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.my-card{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: inline-block;
+}
+
+.show-strong{
+  display: inline-block;
+
+}
+
+.my-card>img{
+  width: 100%;
+}
+
+.card span{
+  font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* colori scritte */
+img[src*="Tractor"] + span.text:hover{
+  color: orange;
+}
+
+img[src*="Submarine"] + span.text:hover{
+  color: blue;
+}
+
+img[src*="Tram"] + span.text:hover{
+  color: green;
+}
+
+img[src*="Bicycle"] + span.text:hover{
+  color:yellow;
+}
+
+img[src*="Cruise"] + span.text:hover{
+  color: purple;
+}
