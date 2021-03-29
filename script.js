@@ -16,9 +16,7 @@ function selectCard(){
     control.push(repeat);
   } else if (arr.includes(cardImg) && control.indexOf(repeat) == -1) { // carta matchata
 
-    setTimeout(function (){
       matchedCard();
-    },500);
 
   } else { // carta NON matchata
 
@@ -35,9 +33,9 @@ function selectCard(){
 
 function matchedCard(){
   $(".my-card.show").each(function(){ // per ogni carta scoperta, faccio azioni
-    $(this).text("CARTA SCOPERTA");
+    // $(this).text("CARTA SCOPERTA");
     $(this).addClass("show-strong"); // classe che mi permette di tenere display
-    $(this).parent().removeClass(".clickable"); // classe che mi rende incliccabile la carta
+    $(this).parent().removeClass("clickable"); // classe che mi rende incliccabile la carta
   })
   arr=[]; //riazzero array per accoppiam
   control=[]; // riazzero array per controllo
@@ -56,7 +54,7 @@ function unmatchedCard(){
 
 function init(){
 
-  $(".clickable").click(selectCard);
+  $(".card.clickable").click(selectCard);
 
 }
 
