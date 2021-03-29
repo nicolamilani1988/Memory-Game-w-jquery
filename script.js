@@ -11,35 +11,48 @@ function selectCard(){
   var cardImg = clickedCard.find("span").text(); // immagine/testo carta
   var repeat = coppia+cardImg; // parametro cartaA / cartaB
 
-
-
   if(arr.length<1 || control.repeat<1){ // creo array per matchare le immagini/testo
     arr.push(cardImg);
     control.push(repeat);
   } else if (arr.includes(cardImg) && control.indexOf(repeat) == -1) { // carta matchata
-    // console.log("centro");
-    $(".my-card.show").each(function(){ // per ogni carta scoperta, faccio azioni
-      $(this).text("CARTA SCOPERTA");
-      $(this).addClass("show-strong"); // classe che mi permette di tenere display
-      $(this).parent().removeClass(".clickable"); // classe che mi rende incliccabile la carta
-    })
-    arr=[]; //riazzero array per accoppiam
-    control=[]; // riazzero array per controllo
+
+    setTimeout(function (){
+      matchedCard();
+    },500);
 
   } else { // carta NON matchata
-    console.log("mancato");
-    $(".my-card.show").each(function(){
-      $(this).removeClass("show"); //rinascondo carta
-      arr=[]; //riazzero array per accoppiam
-      control=[]; // riazzero array per controllo
-      // --------CONTINUARE---------
-    })
+
+    setTimeout(function (){
+      unmatchedCard();
+    },500);
 
   }
   console.log("controllo match",arr);
   console.log("controllo AB" ,control);
 
 }
+
+
+function matchedCard(){
+  $(".my-card.show").each(function(){ // per ogni carta scoperta, faccio azioni
+    $(this).text("CARTA SCOPERTA");
+    $(this).addClass("show-strong"); // classe che mi permette di tenere display
+    $(this).parent().removeClass(".clickable"); // classe che mi rende incliccabile la carta
+  })
+  arr=[]; //riazzero array per accoppiam
+  control=[]; // riazzero array per controllo
+}
+
+
+function unmatchedCard(){
+  $(".my-card.show").each(function(){
+    $(this).removeClass("show"); //rinascondo carta
+    arr=[]; //riazzero array per accoppiam
+    control=[]; // riazzero array per controllo
+  })
+}
+
+
 
 function init(){
 
