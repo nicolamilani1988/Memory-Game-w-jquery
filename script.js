@@ -1,5 +1,9 @@
-var arr = [];
-var control = [];
+function controlArrays(){
+
+   arr = [];
+   control = [];
+
+ }
 
 function selectCard(){
 
@@ -53,7 +57,7 @@ function unmatchedCard(){
 
 
 function init(){
-
+  controlArrays();
   $(".card.clickable").click(selectCard);
 
 }
