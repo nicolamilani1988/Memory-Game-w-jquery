@@ -49,9 +49,9 @@ function matchedCard(){
 function unmatchedCard(){
   $(".my-card.show").each(function(){
     $(this).removeClass("show"); //rinascondo carta
-    arr=[]; //riazzero array per accoppiam
-    control=[]; // riazzero array per controllo
   })
+  arr=[]; //riazzero array per accoppiam
+  control=[]; // riazzero array per controllo
 }
 
 
@@ -59,7 +59,7 @@ function unmatchedCard(){
 function init(){
   controlArrays();
   $(".card.clickable").click(selectCard);
-
 }
 
-$(document).ready(init);
+
+$(init);
