@@ -79,10 +79,10 @@ function closeCard (cards){
   return [];
 }
 
-// function isOpened(card){
-//   const cardShow = card.find("my-card");
-//   return cardShow.hasClass("show");
-// }
+function isOpened(card){
+  const cardShow = card.find("my-card");
+  return cardShow.hasClass("show");
+}
 
 function sameCard(cards){
   const cardImg2 = cards[0].find("span").text();
