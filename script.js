@@ -1,3 +1,4 @@
+// Svolgimento con funzioni globali
 function controlArrays(){
 
    arr = [];
@@ -61,5 +62,72 @@ function init(){
   $(".card.clickable").click(selectCard);
 }
 
+// Svolgimento con funzioni globali
+// $(init);
 
-$(init);
+
+// Suggerimenti Olga
+function showCard(card){
+  const cardShow = card.find(".my-card");
+  cardShow.addClass("show");
+}
+
+function closeCard (cards){
+  cards.forEach( elem => {
+    const cardShow = elem.find(".my-card");
+    cardShow.removeClass("show");
+  });
+  return [];
+}
+
+function isOpened(card){
+  const cardShow = card.find("my-card");
+  console.log(cardShow.hasClass("show"))
+  return cardShow.hasClass("show");
+}
+
+function isDouble(cards) {
+  const cardImg2 = cards[0].find("span").text();
+  const cardImg1 = cards[1].find("span").text();
+  return cardImg1 === cardImg2;
+}
+
+function leaveOpened(cards) {
+  cards.forEach((item) => {
+    const cardFront = item.find(".my-card");
+    cardFront.addClass("show-strong");
+  });
+  return [];
+}
+
+
+
+function initOlga (){
+  let nowOpened = [];
+  $(".card").click(function(){
+
+    const currentCard = $(this);
+    if(isOpened(currentCard)){
+      return;
+    }
+   
+    showCard(currentCard);
+    
+    nowOpened.push(currentCard);
+    
+
+    if (nowOpened.length === 2){
+      if(isDouble(nowOpened)){
+        nowOpened = leaveOpened(nowOpened);
+      } else {
+        setTimeout(function(){
+          nowOpened = closeCard(nowOpened);
+        },1000);
+      }
+    }
+
+  })
+
+}
+
+$(initOlga);
