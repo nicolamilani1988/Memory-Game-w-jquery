@@ -62,8 +62,7 @@ function init(){
   $(".card.clickable").click(selectCard);
 }
 
-// Svolgimento con funzioni globali
-// $(init);
+
 
 
 // Suggerimenti Olga
@@ -80,11 +79,10 @@ function closeCard (cards){
   return [];
 }
 
-function isOpened(card){
-  const cardShow = card.find("my-card");
-  console.log(cardShow.hasClass("show"))
-  return cardShow.hasClass("show");
-}
+// function isOpened(card){
+//   const cardShow = card.find("my-card");
+//   return cardShow.hasClass("show");
+// }
 
 function sameCard(cards){
   const cardImg2 = cards[0].find("span").text();
@@ -126,9 +124,9 @@ function initOlga (){
   $(".card").click(function(){
 
     const currentCard = $(this);
-    if(isOpened(currentCard)){
-      return;
-    }
+    // if(isOpened(currentCard)){
+    //   return;
+    // }
    
     showCard(currentCard);
     
@@ -155,4 +153,7 @@ function initOlga (){
 
 }
 
+// Svolgimento con funzioni globali
+// $(init);
+//svolgimento con funzioni OLGA
 $(initOlga);
