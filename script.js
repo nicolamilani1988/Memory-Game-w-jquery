@@ -114,6 +114,7 @@ function leaveOpened(cards) {
   cards.forEach((item) => {
     const cardFront = item.find(".my-card");
     cardFront.addClass("show-strong");
+    item.removeClass("clickable");
   });
   return [];
 }
