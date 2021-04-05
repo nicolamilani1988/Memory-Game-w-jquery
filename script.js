@@ -86,9 +86,27 @@ function isOpened(card){
   return cardShow.hasClass("show");
 }
 
+function sameCard(cards){
+  const cardImg2 = cards[0].find("span").text();
+  const cardImg1 = cards[1].find("span").text();
+  const cardCouple2 = cards[0].data("value");
+  const cardCouple1 = cards[1].data("value");
+
+  const cardMatch2 = cardImg2+cardCouple2;
+  const cardMatch1 = cardImg1+cardCouple1;
+
+  if(cardMatch1 === cardMatch2){
+    return true;
+  } else {
+    return false;
+  }
+
+}
+
 function isDouble(cards) {
   const cardImg2 = cards[0].find("span").text();
   const cardImg1 = cards[1].find("span").text();
+  
   return cardImg1 === cardImg2;
 }
 
@@ -101,7 +119,7 @@ function leaveOpened(cards) {
 }
 
 
-
+// FUNZIONE SCATENANTE
 function initOlga (){
   let nowOpened = [];
   $(".card").click(function(){
@@ -114,7 +132,13 @@ function initOlga (){
     showCard(currentCard);
     
     nowOpened.push(currentCard);
+
+    console.log(nowOpened);
     
+    if (nowOpened.length === 2 && sameCard(nowOpened)){
+      alert ("non fare il furbo,hai selezionato 2 volte la stessa carta");
+      nowOpened = closeCard(nowOpened);
+    }
 
     if (nowOpened.length === 2){
       if(isDouble(nowOpened)){
